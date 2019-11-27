@@ -2,7 +2,7 @@ class Restaurant < ApplicationRecord
   has_many :reviews, dependent: :destroy
 
   # Validations
-  categories = ['chinese', 'italian', 'japanese', 'french', 'belgian']
+  categories = %w[chinese italian japanese french belgian]
 
   validates :name, presence: true, uniqueness: true
   validates :address, presence: true
