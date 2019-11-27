@@ -4,7 +4,12 @@
 <p>Address: <%= @restaurant.address %> </p>
 <%= link_to "Back to the list", restaurants_path %>
 </br>
-<%= link_to "Create a review...", new_restaurant_review_path(@restaurant) %>
+</br>
+</br>
+
+<h3>Create a new review:</h3>
+<%= render 'restaurants/form_review' %>
+
 </br>
 <h3>Reviews:</h3>
 <% @restaurant.reviews.each do |review| %>
