@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-  before_action :set_restaurant, only: [:show]
+  before_action :set_restaurant, only: [:show, :create_review]
 
   def index
     @restaurants = Restaurant.all
@@ -22,6 +22,18 @@ class RestaurantsController < ApplicationController
     end
   end
 
+  # using foreign models
+  # def review
+  #   @review = Review.new(params_permitted_review)
+  #   @review.restaurant = @restaurant
+  #   # @review.restaurant_id = params[:restaurant_id].to_i
+  #   if @review.save
+  #     redirect_to restaurant_path(@restaurants)
+  #   else
+  #     render :show
+  #   end
+  # end
+
   private
 
   def set_restaurant
@@ -31,4 +43,8 @@ class RestaurantsController < ApplicationController
   def params_permitted
     params.require(:restaurant).permit(:name, :address, :phone_number, :category)
   end
+
+  # def params_permitted_review
+  #   params.require(:review).permit(:content, :rating)
+  # end
 end

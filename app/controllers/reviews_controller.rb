@@ -10,7 +10,7 @@ class ReviewsController < ApplicationController
     @review.restaurant = @restaurant
     # @review.restaurant_id = params[:restaurant_id].to_i
     if @review.save
-      redirect_to restaurant_path(@restaurants)
+      redirect_to restaurant_path(@restaurant)
     else
       render "restaurants/show"
     end
